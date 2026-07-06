@@ -13,7 +13,6 @@
     --card: #0F3460;
     --red: #E63946;
     --gold: #F4D03F;
-    --gold-dim: #b89d2a;
     --white: #EAEAEA;
     --muted: #8899AA;
     --green: #2ECC71;
@@ -28,7 +27,7 @@
     min-height: 100vh;
   }
 
-  /* ===== HEADER ===== */
+  /* HEADER */
   header {
     background: var(--surface);
     border-bottom: 3px solid var(--red);
@@ -43,16 +42,13 @@
 
   .logo {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--gold);
     letter-spacing: 2px;
   }
 
-  .tab-switcher {
-    display: flex;
-    gap: 8px;
-  }
+  .tab-switcher { display: flex; gap: 8px; }
 
   .tab-btn {
     padding: 8px 20px;
@@ -73,7 +69,9 @@
     background: rgba(244,208,63,0.1);
   }
 
-  /* ===== PASSWORD MODAL ===== */
+  .lock-icon { font-size: 0.8rem; margin-right: 2px; }
+
+  /* PASSWORD MODAL */
   .modal-overlay {
     display: none;
     position: fixed;
@@ -84,7 +82,6 @@
     justify-content: center;
     backdrop-filter: blur(4px);
   }
-
   .modal-overlay.show { display: flex; }
 
   .modal-box {
@@ -100,7 +97,7 @@
 
   @keyframes slideUp {
     from { transform: translateY(20px); opacity: 0; }
-    to   { transform: translateY(0);    opacity: 1; }
+    to   { transform: translateY(0); opacity: 1; }
   }
 
   .modal-icon { font-size: 2.4rem; margin-bottom: 12px; }
@@ -113,11 +110,7 @@
     margin-bottom: 6px;
   }
 
-  .modal-sub {
-    color: var(--muted);
-    font-size: 0.82rem;
-    margin-bottom: 24px;
-  }
+  .modal-sub { color: var(--muted); font-size: 0.82rem; margin-bottom: 24px; }
 
   .pw-input {
     width: 100%;
@@ -133,15 +126,13 @@
     margin-bottom: 12px;
     transition: border-color 0.2s;
   }
-
   .pw-input:focus { outline: none; border-color: var(--gold); }
-
   .pw-input.error { border-color: var(--red); animation: shake 0.3s ease; }
 
   @keyframes shake {
     0%,100% { transform: translateX(0); }
-    25%      { transform: translateX(-8px); }
-    75%      { transform: translateX(8px); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
   }
 
   .btn-pw-submit {
@@ -159,7 +150,6 @@
     transition: all 0.2s;
     margin-bottom: 10px;
   }
-
   .btn-pw-submit:hover { background: #e8c332; }
 
   .btn-pw-cancel {
@@ -172,21 +162,12 @@
     text-decoration: underline;
   }
 
-  .pw-error-msg {
-    color: var(--red);
-    font-size: 0.82rem;
-    margin-bottom: 10px;
-    min-height: 18px;
-  }
+  .pw-error-msg { color: var(--red); font-size: 0.82rem; margin-bottom: 10px; min-height: 18px; }
 
-  /* 管理タブのロックアイコン */
-  .lock-icon { font-size: 0.8rem; margin-right: 2px; }
-
-  /* ===== PAGES ===== */
+  /* PAGES */
   .page { display: none; padding: 32px 24px; max-width: 680px; margin: 0 auto; }
   .page.active { display: block; }
 
-  /* ===== ENTRY PAGE ===== */
   .page-title {
     font-family: 'Oswald', sans-serif;
     font-size: 1.8rem;
@@ -195,11 +176,7 @@
     margin-bottom: 8px;
   }
 
-  .page-sub {
-    color: var(--muted);
-    font-size: 0.9rem;
-    margin-bottom: 32px;
-  }
+  .page-sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 32px; }
 
   .card {
     background: var(--surface);
@@ -231,27 +208,21 @@
     transition: border-color 0.2s;
     margin-bottom: 20px;
   }
+  .form-input:focus { outline: none; border-color: var(--gold); }
 
-  .form-input:focus {
-    outline: none;
-    border-color: var(--gold);
-  }
-
+  /* 馬番入力 */
   .bet-row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
   }
 
-  .bet-slot {
-    text-align: center;
-  }
+  .bet-slot { text-align: center; }
 
   .bet-slot label {
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--muted);
     display: block;
     margin-bottom: 6px;
     text-transform: uppercase;
@@ -276,11 +247,19 @@
     transition: border-color 0.2s, box-shadow 0.2s;
     -moz-appearance: textfield;
   }
-
   .horse-input::-webkit-outer-spin-button,
   .horse-input::-webkit-inner-spin-button { -webkit-appearance: none; }
-
   .horse-input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(244,208,63,0.15); }
+  .horse-input.input-error { border-color: var(--red) !important; box-shadow: 0 0 0 3px rgba(230,57,70,0.2) !important; }
+
+  .bet-error-msg {
+    color: var(--red);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-align: center;
+    min-height: 20px;
+    margin-bottom: 16px;
+  }
 
   .btn-primary {
     width: 100%;
@@ -296,11 +275,9 @@
     cursor: pointer;
     transition: all 0.2s;
   }
-
   .btn-primary:hover { background: #c0303b; transform: translateY(-1px); }
   .btn-primary:active { transform: translateY(0); }
 
-  /* success message */
   .success-msg {
     display: none;
     background: rgba(46,204,113,0.15);
@@ -314,20 +291,10 @@
     margin-top: 16px;
   }
 
-  /* entries list (on entry page) */
-  .entries-count {
-    color: var(--muted);
-    font-size: 0.85rem;
-    margin-bottom: 12px;
-  }
+  .entries-count { color: var(--muted); font-size: 0.85rem; margin-bottom: 12px; }
+  .entries-count span { color: var(--gold); font-weight: 700; font-size: 1.1rem; }
 
-  .entries-count span {
-    color: var(--gold);
-    font-weight: 700;
-    font-size: 1.1rem;
-  }
-
-  /* ===== ADMIN PAGE ===== */
+  /* ADMIN */
   .section-title {
     font-family: 'Oswald', sans-serif;
     font-size: 1.2rem;
@@ -360,7 +327,6 @@
     transition: all 0.2s;
     margin-bottom: 12px;
   }
-
   .btn-judge:hover { background: #e8c332; transform: translateY(-1px); }
 
   .btn-reset {
@@ -376,10 +342,9 @@
     transition: all 0.2s;
     margin-bottom: 24px;
   }
-
   .btn-reset:hover { border-color: var(--red); color: var(--red); }
 
-  /* horse animation */
+  /* 馬アニメ */
   .horse-track {
     display: none;
     background: linear-gradient(90deg, #1a4a1a 0%, #2d7a2d 50%, #1a4a1a 100%);
@@ -391,7 +356,6 @@
     height: 52px;
     align-items: center;
   }
-
   .horse-track.show { display: flex; }
 
   .horse-emoji {
@@ -415,12 +379,8 @@
     bottom: 6px;
   }
 
-  /* results panel */
-  .result-panel {
-    display: none;
-    margin-top: 8px;
-  }
-
+  /* 結果パネル */
+  .result-panel { display: none; margin-top: 8px; }
   .result-panel.show { display: block; }
 
   .result-answer {
@@ -443,11 +403,7 @@
     white-space: nowrap;
   }
 
-  .result-answer-nums {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
+  .result-answer-nums { display: flex; gap: 8px; align-items: center; }
 
   .ans-num {
     background: var(--gold);
@@ -463,12 +419,8 @@
     justify-content: center;
   }
 
-  .ans-arrow {
-    color: var(--gold);
-    font-size: 1.2rem;
-  }
+  .ans-arrow { color: var(--gold); font-size: 1.2rem; }
 
-  /* winner / losers list */
   .list-header {
     display: flex;
     justify-content: space-between;
@@ -510,11 +462,7 @@
     100% { transform: scale(1); opacity: 1; }
   }
 
-  .entry-name {
-    font-weight: 700;
-    font-size: 1rem;
-  }
-
+  .entry-name { font-weight: 700; font-size: 1rem; }
   .winner .entry-name { color: var(--gold); }
 
   .entry-bet {
@@ -523,25 +471,15 @@
     color: var(--muted);
     letter-spacing: 2px;
   }
-
   .winner .entry-bet { color: var(--gold); }
 
-  .winner-crown {
-    font-size: 1.4rem;
-    margin-left: 8px;
-  }
+  .winner-crown { font-size: 1.4rem; margin-left: 8px; }
 
-  /* all entries compact */
-  .all-entries-list {
-    max-height: 300px;
-    overflow-y: auto;
-  }
-
+  .all-entries-list { max-height: 300px; overflow-y: auto; }
   .all-entries-list::-webkit-scrollbar { width: 4px; }
   .all-entries-list::-webkit-scrollbar-track { background: var(--navy); }
   .all-entries-list::-webkit-scrollbar-thumb { background: var(--card); border-radius: 2px; }
 
-  /* export */
   .btn-export {
     display: inline-flex;
     align-items: center;
@@ -557,15 +495,9 @@
     font-weight: 700;
     transition: all 0.2s;
   }
-
   .btn-export:hover { border-color: var(--white); background: rgba(255,255,255,0.05); }
 
-  .empty-state {
-    text-align: center;
-    color: var(--muted);
-    padding: 32px;
-    font-size: 0.9rem;
-  }
+  .empty-state { text-align: center; color: var(--muted); padding: 32px; font-size: 0.9rem; }
 
   .no-winner-msg {
     text-align: center;
@@ -576,11 +508,10 @@
     border-radius: 8px;
   }
 
-  /* ===== RESPONSIVE ===== */
   @media (max-width: 480px) {
     header { padding: 12px 16px; }
-    .logo { font-size: 1.2rem; }
-    .tab-btn { padding: 6px 14px; font-size: 0.78rem; }
+    .logo { font-size: 1rem; }
+    .tab-btn { padding: 6px 12px; font-size: 0.75rem; }
     .page { padding: 24px 16px; }
     .horse-input { font-size: 1.4rem; padding: 12px 4px; }
   }
@@ -588,7 +519,7 @@
 </head>
 <body>
 
-<!-- ========== PASSWORD MODAL ========== -->
+<!-- PASSWORD MODAL -->
 <div class="modal-overlay" id="pw-modal">
   <div class="modal-box">
     <div class="modal-icon">🔐</div>
@@ -607,18 +538,21 @@
   <div class="logo">🏇 CGA部活ダービー　3連単チャレンジ</div>
   <div class="tab-switcher">
     <button class="tab-btn active" onclick="showPage('entry', event)">予想入力</button>
-    <button class="tab-btn" id="admin-tab-btn" onclick="requestAdminAccess(event)"><span class="lock-icon" id="admin-lock">🔒</span>管理・結果</button>
+    <button class="tab-btn" id="admin-tab-btn" onclick="requestAdminAccess(event)">
+      <span class="lock-icon" id="admin-lock">🔒</span>管理・結果
+    </button>
   </div>
 </header>
 
-<!-- ========== ENTRY PAGE ========== -->
+<!-- ENTRY PAGE -->
 <div class="page active" id="page-entry">
   <div class="page-title">予想を入力</div>
-  <p class="page-sub">1着・2着・3着の馬番を入力して送信してください。</p>
+  <p class="page-sub">1着・2着・3着の馬番（1〜6）を入力して送信してください。</p>
 
   <div class="card">
     <label class="form-label">あなたのEID</label>
-    <input class="form-input" id="entry-name" type="text" placeholder="例）yuji.yurino" maxlength="30">
+    <input class="form-input" id="entry-name" type="text" placeholder="例）yuji.yurino" maxlength="30"
+      oninput="this.value=this.value.replace(/[^\x20-\x7E]/g,'')">
 
     <div style="margin-bottom: 8px;">
       <span class="form-label">3連単 予想</span>
@@ -626,17 +560,21 @@
     <div class="bet-row">
       <div class="bet-slot">
         <label class="badge-1">🥇 1着</label>
-        <input class="horse-input" id="bet1" type="number" min="1" max="18" placeholder="—">
+        <input class="horse-input" id="bet1" type="tel" maxlength="1" placeholder="—"
+          oninput="onBetInput(this,'bet1')">
       </div>
       <div class="bet-slot">
         <label class="badge-2">🥈 2着</label>
-        <input class="horse-input" id="bet2" type="number" min="1" max="18" placeholder="—">
+        <input class="horse-input" id="bet2" type="tel" maxlength="1" placeholder="—"
+          oninput="onBetInput(this,'bet2')">
       </div>
       <div class="bet-slot">
         <label class="badge-3">🥉 3着</label>
-        <input class="horse-input" id="bet3" type="number" min="1" max="18" placeholder="—">
+        <input class="horse-input" id="bet3" type="tel" maxlength="1" placeholder="—"
+          oninput="onBetInput(this,'bet3')">
       </div>
     </div>
+    <div class="bet-error-msg" id="bet-error"></div>
 
     <button class="btn-primary" onclick="submitEntry()">🎯 予想を登録する</button>
     <div class="success-msg" id="success-msg">✅ 登録しました！結果をお楽しみに！</div>
@@ -650,7 +588,7 @@
   </div>
 </div>
 
-<!-- ========== ADMIN PAGE ========== -->
+<!-- ADMIN PAGE -->
 <div class="page" id="page-admin">
   <div class="page-title">管理・結果発表</div>
   <p class="page-sub">正解の馬番を入力して「判定する」を押してください。</p>
@@ -660,31 +598,27 @@
     <div class="result-input-row">
       <div class="bet-slot">
         <label class="badge-1">🥇 1着</label>
-        <input class="horse-input" id="ans1" type="number" min="1" max="18" placeholder="—">
+        <input class="horse-input" id="ans1" type="number" min="1" max="6" placeholder="—">
       </div>
       <div class="bet-slot">
         <label class="badge-2">🥈 2着</label>
-        <input class="horse-input" id="ans2" type="number" min="1" max="18" placeholder="—">
+        <input class="horse-input" id="ans2" type="number" min="1" max="6" placeholder="—">
       </div>
       <div class="bet-slot">
         <label class="badge-3">🥉 3着</label>
-        <input class="horse-input" id="ans3" type="number" min="1" max="18" placeholder="—">
+        <input class="horse-input" id="ans3" type="number" min="1" max="6" placeholder="—">
       </div>
     </div>
     <button class="btn-judge" onclick="judgeResults()">🏆 判定する</button>
     <button class="btn-reset" onclick="resetAll()">⚠️ 全データをリセット</button>
   </div>
 
-  <!-- Horse animation -->
   <div class="horse-track" id="horse-track">
     <span class="horse-emoji" id="horse-emoji">🏇</span>
     <span class="track-label">結果発表中…</span>
   </div>
 
-  <!-- Result panel -->
   <div class="result-panel" id="result-panel">
-
-    <!-- Answer display -->
     <div class="result-answer">
       <span class="result-answer-label">確定</span>
       <div class="result-answer-nums">
@@ -696,14 +630,12 @@
       </div>
     </div>
 
-    <!-- Winners -->
     <div class="list-header">
       <div class="section-title" style="margin-bottom:0">🎉 的中者</div>
       <span class="count-badge" id="winner-count">0名</span>
     </div>
     <div id="winner-list" style="margin-bottom:24px"></div>
 
-    <!-- All entries -->
     <div class="list-header">
       <div class="section-title" style="margin-bottom:0">📋 全参加者</div>
       <div style="display:flex;gap:8px">
@@ -715,12 +647,9 @@
   </div>
 </div>
 
-<!-- Firebase SDK -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getDatabase, ref, set, onValue, remove } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
-
-  // ===== FIREBASE CONFIG =====
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script>
   const firebaseConfig = {
     apiKey: "AIzaSyA5HftQeCBj9Qp8brtbRvBeuixGuvxJ3tc",
     authDomain: "cga-derby.firebaseapp.com",
@@ -731,14 +660,12 @@
     appId: "1:516232962954:web:cebd275f003e2959fd5e73"
   };
 
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
 
-  // ===== DATA STORE（リアルタイム同期）=====
   let entries = [];
 
-  // Firebaseからリアルタイムでデータを受信
-  onValue(ref(db, 'entries'), (snapshot) => {
+  db.ref('entries').on('value', (snapshot) => {
     const data = snapshot.val();
     entries = data ? Object.values(data) : [];
     renderEntryPreview();
@@ -756,14 +683,51 @@
   });
 
   async function saveEntry(entry) {
-    // EIDをキーにして保存（上書き対応）
     const key = entry.name.replace(/\./g, '_');
-    await set(ref(db, 'entries/' + key), entry);
+    await db.ref('entries/' + key).set(entry);
   }
 
   async function deleteAllEntries() {
-    await remove(ref(db, 'entries'));
+    await db.ref('entries').remove();
   }
+
+  // ===== 馬番バリデーション =====
+  window.onBetInput = function(el, fieldId) {
+    // 半角数字のみ・1桁のみ
+    el.value = el.value.replace(/[^0-9]/g, '').slice(0, 1);
+
+    const val = parseInt(el.value);
+    const errEl = document.getElementById('bet-error');
+
+    if (el.value === '') {
+      el.classList.remove('input-error');
+      errEl.textContent = '';
+      return;
+    }
+
+    // 1〜6範囲チェック
+    if (val < 1 || val > 6) {
+      el.value = '';
+      el.classList.add('input-error');
+      errEl.textContent = '⚠ 馬番は1〜6で入力してください';
+      setTimeout(() => { el.classList.remove('input-error'); errEl.textContent = ''; }, 1500);
+      return;
+    }
+
+    // 重複チェック
+    const others = ['bet1','bet2','bet3'].filter(id => id !== fieldId);
+    const otherVals = others.map(id => parseInt(document.getElementById(id).value)).filter(v => !isNaN(v));
+    if (otherVals.includes(val)) {
+      el.value = '';
+      el.classList.add('input-error');
+      errEl.textContent = '⚠ 同じ馬番は入力できません';
+      setTimeout(() => { el.classList.remove('input-error'); errEl.textContent = ''; }, 1500);
+      return;
+    }
+
+    el.classList.remove('input-error');
+    errEl.textContent = '';
+  };
 
   // ===== PASSWORD =====
   const ADMIN_PASSWORD = 'chihiro0822';
@@ -800,7 +764,6 @@
     document.getElementById('pw-modal').classList.remove('show');
   };
 
-  // ===== TAB SWITCH =====
   window.showPage = function(name, e) {
     const ev = e || event;
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -809,7 +772,6 @@
     if (ev && ev.currentTarget) ev.currentTarget.classList.add('active');
   };
 
-  // ===== SUBMIT ENTRY =====
   window.submitEntry = async function() {
     const name = document.getElementById('entry-name').value.trim();
     const b1 = parseInt(document.getElementById('bet1').value);
@@ -817,9 +779,9 @@
     const b3 = parseInt(document.getElementById('bet3').value);
 
     if (!name) { alert('EIDを入力してください'); return; }
-    if (!b1 || !b2 || !b3) { alert('馬番（1着・2着・3着）をすべて入力してください'); return; }
-    if (b1 < 1 || b1 > 18 || b2 < 1 || b2 > 18 || b3 < 1 || b3 > 18) {
-      alert('馬番は1〜18の範囲で入力してください'); return;
+    if (isNaN(b1) || isNaN(b2) || isNaN(b3)) { alert('馬番（1着・2着・3着）をすべて入力してください'); return; }
+    if (b1 < 1 || b1 > 6 || b2 < 1 || b2 > 6 || b3 < 1 || b3 > 6) {
+      alert('馬番は1〜6の範囲で入力してください'); return;
     }
     if (b1 === b2 || b2 === b3 || b1 === b3) {
       alert('1着・2着・3着は異なる馬番を入力してください'); return;
@@ -836,13 +798,13 @@
     document.getElementById('bet1').value = '';
     document.getElementById('bet2').value = '';
     document.getElementById('bet3').value = '';
+    document.getElementById('bet-error').textContent = '';
 
     const msg = document.getElementById('success-msg');
     msg.style.display = 'block';
     setTimeout(() => msg.style.display = 'none', 3000);
   };
 
-  // ===== RENDER ENTRY PREVIEW =====
   function renderEntryPreview() {
     document.getElementById('entry-count').textContent = entries.length;
     const container = document.getElementById('entry-preview');
@@ -858,13 +820,12 @@
     ).join('');
   }
 
-  // ===== JUDGE =====
   window.judgeResults = function() {
     const a1 = parseInt(document.getElementById('ans1').value);
     const a2 = parseInt(document.getElementById('ans2').value);
     const a3 = parseInt(document.getElementById('ans3').value);
 
-    if (!a1 || !a2 || !a3) { alert('正解の馬番（1着・2着・3着）をすべて入力してください'); return; }
+    if (isNaN(a1) || isNaN(a2) || isNaN(a3)) { alert('正解の馬番（1着・2着・3着）をすべて入力してください'); return; }
     if (a1 === a2 || a2 === a3 || a1 === a3) { alert('1着・2着・3着は異なる馬番にしてください'); return; }
     if (entries.length === 0) { alert('参加者がいません'); return; }
 
@@ -892,19 +853,16 @@
     document.getElementById('winner-count').textContent = winners.length + '名';
 
     const wContainer = document.getElementById('winner-list');
-    if (winners.length === 0) {
-      wContainer.innerHTML = '<div class="no-winner-msg">😢 今回の的中者はいませんでした</div>';
-    } else {
-      wContainer.innerHTML = winners.map(e =>
-        `<div class="entry-item winner">
-          <span class="entry-name">${escHtml(e.name)}<span class="winner-crown">👑</span></span>
-          <span class="entry-bet">${e.bet[0]} → ${e.bet[1]} → ${e.bet[2]}</span>
-        </div>`
-      ).join('');
-    }
+    wContainer.innerHTML = winners.length === 0
+      ? '<div class="no-winner-msg">😢 今回の的中者はいませんでした</div>'
+      : winners.map(e =>
+          `<div class="entry-item winner">
+            <span class="entry-name">${escHtml(e.name)}<span class="winner-crown">👑</span></span>
+            <span class="entry-bet">${e.bet[0]} → ${e.bet[1]} → ${e.bet[2]}</span>
+          </div>`
+        ).join('');
 
-    const allContainer = document.getElementById('all-entries-result');
-    allContainer.innerHTML = [...winners, ...losers].map(e => {
+    document.getElementById('all-entries-result').innerHTML = [...winners, ...losers].map(e => {
       const isW = e.bet[0] === a1 && e.bet[1] === a2 && e.bet[2] === a3;
       return `<div class="entry-item ${isW ? 'winner' : ''}">
         <span class="entry-name">${escHtml(e.name)}${isW ? ' 👑' : ''}</span>
@@ -915,7 +873,6 @@
     document.getElementById('result-panel').classList.add('show');
   }
 
-  // ===== COPY =====
   window.copyResults = function() {
     const a1 = document.getElementById('disp-ans1').textContent;
     const a2 = document.getElementById('disp-ans2').textContent;
@@ -932,7 +889,6 @@
     navigator.clipboard.writeText(text).then(() => alert('📋 クリップボードにコピーしました！'));
   };
 
-  // ===== CSV =====
   window.downloadCSV = function() {
     const a1 = document.getElementById('disp-ans1').textContent;
     const a2 = document.getElementById('disp-ans2').textContent;
@@ -957,7 +913,6 @@
     a.click();
   };
 
-  // ===== RESET =====
   window.resetAll = async function() {
     if (!confirm('全参加者データと結果をリセットします。よろしいですか？')) return;
     await deleteAllEntries();
