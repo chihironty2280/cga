@@ -742,6 +742,17 @@
     const data = snapshot.val();
     entries = data ? Object.values(data) : [];
     renderEntryPreview();
+    if (!data) {
+      document.getElementById('result-panel').classList.remove('show');
+      document.getElementById('disp-ans1').textContent = '—';
+      document.getElementById('disp-ans2').textContent = '—';
+      document.getElementById('disp-ans3').textContent = '—';
+      document.getElementById('winner-list').innerHTML = '';
+      document.getElementById('all-entries-result').innerHTML = '';
+      document.getElementById('ans1').value = '';
+      document.getElementById('ans2').value = '';
+      document.getElementById('ans3').value = '';
+    }
   });
 
   async function saveEntry(entry) {
