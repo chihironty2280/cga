@@ -714,17 +714,6 @@
       return;
     }
 
-    // 重複チェック
-    const others = ['bet1','bet2','bet3'].filter(id => id !== fieldId);
-    const otherVals = others.map(id => parseInt(document.getElementById(id).value)).filter(v => !isNaN(v));
-    if (otherVals.includes(val)) {
-      el.value = '';
-      el.classList.add('input-error');
-      errEl.textContent = '⚠ 同じ馬番は入力できません';
-      setTimeout(() => { el.classList.remove('input-error'); errEl.textContent = ''; }, 1500);
-      return;
-    }
-
     el.classList.remove('input-error');
     errEl.textContent = '';
   };
@@ -783,10 +772,6 @@
     if (b1 < 1 || b1 > 6 || b2 < 1 || b2 > 6 || b3 < 1 || b3 > 6) {
       alert('馬番は1〜6の範囲で入力してください'); return;
     }
-    if (b1 === b2 || b2 === b3 || b1 === b3) {
-      alert('1着・2着・3着は異なる馬番を入力してください'); return;
-    }
-
     if (entries.find(e => e.name === name)) {
       if (!confirm(`「${name}」はすでに登録済みです。上書きしますか？`)) return;
     }
