@@ -714,6 +714,17 @@
       return;
     }
 
+    // 重複チェック
+    const others = ['bet1','bet2','bet3'].filter(id => id !== fieldId);
+    const otherVals = others.map(id => parseInt(document.getElementById(id).value)).filter(v => !isNaN(v));
+    if (otherVals.includes(val)) {
+      el.value = '';
+      el.classList.add('input-error');
+      errEl.textContent = '⚠ 同じ馬番は入力できません';
+      setTimeout(() => { el.classList.remove('input-error'); errEl.textContent = ''; }, 1500);
+      return;
+    }
+
     el.classList.remove('input-error');
     errEl.textContent = '';
   };
